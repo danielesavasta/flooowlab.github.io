@@ -25,3 +25,7 @@ The repository must be named `flooowlab.github.io` under the `flooowlab` GitHub 
 1. Push to `main`.
 2. In the repository, open Settings, then Pages, and set Source to **GitHub Actions**.
 3. `.github/workflows/deploy.yml` builds and publishes on every push to `main`.
+
+
+# flooowlab.github.io
+Flooowlab is a practice-based lab within the Visual Communication Design Department of Izmir Uinversity of Economics. It promotes computational media and physical computing through projects on interactive heritage exhibitions and interaction ecologies, while providing tools, devices, and microcontrollers for prototyping.
