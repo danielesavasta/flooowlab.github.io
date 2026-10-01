@@ -1,0 +1,19 @@
+---
+import Base from '../layouts/Base.astro';
+import { tools } from '../data/tools';
+---
+<Base title="Management tools" description="Digital tools Flowlab uses to manage its lab.">
+  <h1>Management tools</h1>
+  <p class="lede">Digital tools for running the lab: equipment, people and access.</p>
+
+  {tools.map((t) => (
+    <article>
+      <h3>{t.href ? <a href={t.href}>{t.name}</a> : t.name}</h3>
+      <p class="meta">{t.status}{t.tech && ` · ${t.tech.join(', ')}`}</p>
+      <p>{t.summary}</p>
+      <ul>
+        {t.features.map((f) => <li>{f}</li>)}
+      </ul>
+    </article>
+  ))}
+</Base>

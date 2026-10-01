@@ -1,0 +1,41 @@
+---
+import '../styles/global.css';
+import { site } from '../data/site';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+const { title, description = site.tagline } = Astro.props;
+const pageTitle = title ? `${title} · ${site.name}` : site.name;
+const path = Astro.url.pathname;
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{pageTitle}</title>
+  </head>
+  <body>
+    <header>
+      <a class="name" href="/">{site.name}</a>
+      <nav aria-label="Main">
+        {site.nav.slice(1).map((item) => (
+          <a href={item.href} aria-current={path === item.href ? 'page' : undefined}>{item.label}</a>
+        ))}
+      </nav>
+    </header>
+    <main>
+      <slot />
+    </main>
+    <footer>
+      <p>
+        {site.name}, İzmir.
+        {site.email && <> <a href={`mailto:${site.email}`}>{site.email}</a></>}
+      </p>
+    </footer>
+  </body>
+</html>
